@@ -1,0 +1,19 @@
+# Local state and generated files. Existing tracked reports are preserved.
+.local/
+.vercel/
+node_modules/
+**/node_modules/
+**/.npm-cache/
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/*.tsbuildinfo
+**/dist/
+**/.sites-runtime/
+**/.openai/
+.env
+.env.*
+!.env.example
+tmp/
+output/
+*.tar.gz

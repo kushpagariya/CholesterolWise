@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.sites-runtime/
+*.local
+*.tsbuildinfo
+.npm-cache/
+.venv/
+__pycache__/
+.pytest_cache/
+.env

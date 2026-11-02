@@ -1,0 +1,15 @@
+.git
+.local
+tmp
+output
+*.tar.gz
+*.jpg
+**/node_modules
+**/.git
+**/.npm-cache
+**/.venv
+**/.pytest_cache
+**/__pycache__
+**/.sites-runtime
+**/.openai
+**/*.tsbuildinfo

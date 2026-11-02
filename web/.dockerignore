@@ -1,0 +1,12 @@
+node_modules
+.venv
+.git
+.npm-cache
+.sites-runtime
+dist
+__pycache__
+.pytest_cache
+*.tsbuildinfo
+.env
+.env.*
+!.env.example

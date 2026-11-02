@@ -30,6 +30,18 @@ npm run build
 
 Read [backend setup and deployment](web/backend/README.md) for the API contract, calculations, Docker setup and configuration for separate hosts. The existing private Sites preview cannot execute Python and remains the previous frontend-only version until Python hosting is configured. Run the local server to use this backend-integrated version.
 
+## Deploy on Render
+
+Use this repository's root directory, Docker runtime, Dockerfile path `./Dockerfile`, and Docker context `.`. Leave the Docker start command empty so the image's CMD starts FastAPI. Set the health check to `/api/health`. The root Dockerfile builds React and serves the entire application from one service. `render.yaml` records these settings for Blueprint deployments.
+
+For an existing failed service, deploy the latest commit after pushing these fixes. The `web/` source must be normal tracked files, not a Git submodule without a remote. Render's free service can take more than 50 seconds to wake; the browser allows 90 seconds for analysis requests.
+
+## Deploy on Vercel
+
+Keep the project Root Directory at the repository root (leave it blank in Vercel). The root `vercel.json` installs dependencies in `web`, builds the React app, and publishes `web/dist`. It routes `/api/*` to the Python ASGI function in `api/index.py`, which imports the same backend rules. Both parts use the same domain, so leave `VITE_API_BASE_URL` empty and remove any stale value in the project's environment variables before redeploying.
+
+Check `/` for the website and `/api/health` for the JSON service status after deployment. The Vercel frontend does not require the Render service because its own Python function handles analysis.
+
 ## Included
 
 - Landing page with a rotatable, animated schematic 3D heart.

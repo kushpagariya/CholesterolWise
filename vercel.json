@@ -1,0 +1,16 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "npm ci --prefix web --no-audit --no-fund",
+  "buildCommand": "npm run build",
+  "outputDirectory": "web/dist",
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60,
+      "excludeFiles": "{tmp/**,output/**,.local/**,web/node_modules/**,web/dist/**,web/.npm-cache/**,web/backend/tests/**,*.tar.gz,*.jpg}"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index.py" }
+  ]
+}
